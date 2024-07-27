@@ -1,1 +1,1 @@
-const isSquare = (number:number):boolean => Math.pow(Math.sqrt(number),2) === number ? true : false
+const isSquare = (number:number):boolean => Math.sqrt(number) % 1 === 0
