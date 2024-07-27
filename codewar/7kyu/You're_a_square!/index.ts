@@ -1,0 +1,1 @@
+const isSquare = (number:number):boolean => Math.abs(Math.sqrt(number)) ? true : false
