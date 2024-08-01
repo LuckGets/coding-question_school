@@ -46,39 +46,37 @@ There is 2 solution to this question which separated by BigO notation of each so
 
 #### Solution 1 BigO : n^2^
 
-    const twoSumSlower = function(nums:number[], target:number)
-    {
-      for (let i:number = 0; i < nums.length; i++)
-      {
-      for (let j:number = i + 1; j < nums.length; j++)
-      {
-          if (nums[i] + nums[j] === target) {
-              return [i, j]
-          }
-          }
-        }
-      };
+```typescript
+const twoSumSlower = function (nums: number[], target: number) {
+  for (let i: number = 0; i < nums.length; i++) {
+    for (let j: number = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) {
+        return [i, j];
+      }
+    }
+  }
+};
+```
 
-This solution is kinda brute force and will be super slow if there are so many content in nums.
+> This solution is kinda brute force and will be super slow if there are so many content in nums.
 
 ---
 
 #### Solution 2 BigO : `O(n2)`
 
-    function twoSum(nums:number[],target:number):Array<number> | undefined
-    {
-        const dict:DictTable = {}
-        for (let i:number = 0; i <= nums.length; i++) {
+```typescript
+function twoSum(nums: number[], target: number): Array<number> | undefined {
+  const dict: DictTable = {};
+  for (let i: number = 0; i <= nums.length; i++) {
+    const targetNumber: number = Math.abs(target - nums[i]);
 
-        const targetNumber:number = Math.abs(target - nums[i])
+    if (target in dict) {
+      return [dict[targetNumber], i];
+    }
 
-        if (target in dict) {
-          return [dict[targetNumber], i]
-        }
-
-        dict[nums[i]] = i
-      }
-
+    dict[nums[i]] = i;
+  }
 }
+```
 
-This solution is faster because we only loop one time. By putting every seen index into dictionary table. We can easily find the target number when there is desired number.
+> This solution is faster because we only loop one time. By putting every seen index into dictionary table. We can easily find the target number when there is desired number.
