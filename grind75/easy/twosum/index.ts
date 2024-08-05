@@ -12,14 +12,15 @@ const twoSumSlower = function (nums: number[], target: number) {
   }
 };
 
-function twoSum(nums: number[], target: number): Array<number> | undefined {
-  const dict: DictTable = {};
-
-  for (let i: number = 0; i <= nums.length; i++) {
-    const targetNumber: number = Math.abs(target - nums[i]);
-    if (target in dict) {
-      return [dict[targetNumber], i];
+function twoSum(nums: number[], target: number): number[] {
+  const dict: { [key: number]: { idx: number } } = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (dict[target - nums[i]]) {
+      return [dict[target - nums[i]].idx, i];
     }
-    dict[nums[i]] = i;
+    if (!dict[nums[i]]) {
+      dict[nums[i]] = { idx: i };
+    }
   }
+  throw new Error("No solution or invalid input");
 }
