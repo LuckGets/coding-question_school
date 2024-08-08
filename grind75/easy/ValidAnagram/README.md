@@ -39,6 +39,8 @@ Then, we loop through second parameter and each time we met the character, we mi
 
 So, if the second parameter use the same character, all the value in hash map is going to equal 0.
 
+if one of the key in hash map has value greater than 0 or not equal 0 then we can assume that second parameter is not anagram.
+
 <br>
 
 ```typescript
@@ -59,5 +61,28 @@ function isAnagram(s: string, t: string): boolean {
   }
 
   return true;
+}
+```
+
+##### Leetcode guy's solution [nitts](https://leetcode.com/u/niits/)
+
+###### Intuition
+
+We want to compare two hashmap of each parameter. If the hash map has the same key and same value. So the second parameter is valid anagram. But in javascript, we can not compare the two object. So we change it to JSON and compare.
+
+```typescript
+function isAnagramSortWithJSON(s: string, t: string): void | boolean {
+  if (t.length !== s.length) return false;
+  const tHashMap: { [key: string]: number } = {};
+  const sHashMap: { [key: string]: number } = {};
+  for (let i = 0; i < s.length; i++) {
+    sHashMap[s[i]] = 1 + (sHashMap[s[i]] || 0);
+    tHashMap[t[i]] = 1 + (tHashMap[t[i]] || 0);
+  }
+
+  const sortedSMap = Object.entries(sHashMap);
+  const sortedTMap = Object.entries(tHashMap);
+
+  return JSON.stringify(sortedSMap) === JSON.stringify(sortedTMap);
 }
 ```

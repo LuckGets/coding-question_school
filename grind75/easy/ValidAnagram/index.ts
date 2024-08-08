@@ -10,8 +10,7 @@ function isAnagramSortWithJSON(s: string, t: string): void | boolean {
   const sortedSMap = Object.entries(sHashMap);
   const sortedTMap = Object.entries(tHashMap);
 
-  console.log("sMap", sortedSMap);
-  console.log("tMap", sortedTMap);
+  return JSON.stringify(sortedSMap) === JSON.stringify(sortedTMap);
 }
 
 function isAnagram(s: string, t: string): boolean {
