@@ -46,3 +46,25 @@ function containsDuplicate(nums: number[]): boolean {
 ```
 
 ##### Binary search
+
+[AminiCK](https://leetcode.com/u/AminiCK/) has explained the binary search concept fairly easy and straightforward. You can check his profile or read the [AminiCK](https://leetcode.com/u/AminiCK/) explanation via my [github link](https://github.com/LuckGets/coding-question_school/tree/main/algorithms/basic/binarySearch) or [AminiCK leetcode solution page](https://leetcode.com/problems/binary-search/solutions/423162/binary-search-101/)
+
+All credited to [AminiCK](https://leetcode.com/u/AminiCK/).
+
+Salute 🫡🫡🫡
+
+```javascript
+const search = function (nums, target) {
+  let lo = 0,
+    hi = nums.length - 1;
+  while (lo < hi) {
+    let mid = lo + Math.floor((hi - lo + 1) / 2);
+    if (target < nums[mid]) {
+      hi = mid - 1;
+    } else {
+      lo = mid;
+    }
+  }
+  return nums[lo] == target ? lo : -1;
+};
+```

@@ -214,3 +214,5 @@ My rule of thumb when it comes to binary search:
 5. Always think of the case when there are 2 elements left
 
 **_Because this problem is a failrly easy, the implementions may be pretty straight forward and you may wonder why do I need so many rules. However, binary search problems can get much much more complex, and without consistent rules, it's very hard to write predictable code. In the end, I would say everybody has their own style of binary serach, find the style that works for you!_**
+
+Salute to [AminiCK](https://leetcode.com/u/AminiCK/). 🫡🫡🫡
